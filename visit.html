@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Us - Museo de Guinobatan</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .visit-content {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f9f6f0 0%, #f0ebe1 100%);
+        }
+
+        .visit-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f4ee 100%);
+            border: 6px solid #8b6914;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 
+                0 12px 30px rgba(0,0,0,0.15),
+                inset 0 2px 4px rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #8b6914, #d4af37, #f4e7a1, #d4af37, #8b6914);
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #2c1810;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #d4af37;
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.08);
+            border-radius: 12px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #8b6914;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .info-label::before {
+            content: '◆';
+            color: #d4af37;
+            font-size: 0.8rem;
+        }
+
+        .info-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            color: #2c1810;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .hours-item {
+            padding: 1rem;
+            background: rgba(255,255,255,0.6);
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid rgba(139, 105, 20, 0.2);
+        }
+
+        .hours-day {
+            font-weight: 600;
+            color: #8b6914;
+            margin-bottom: 0.5rem;
+        }
+
+        .hours-time {
+            color: #2c1810;
+        }
+
+        .closed {
+            opacity: 0.6;
+        }
+
+        /* Location Section Styles */
+        .location-section {
+            background: linear-gradient(135deg, #ede6d6 0%, #e6dcc6 100%);
+            padding: 4rem 2rem;
+        }
+
+        .location-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #2c1810;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .location-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #8b6914, #d4af37);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .address-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f4ee 100%);
+            border: 6px solid #8b6914;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 
+                0 12px 30px rgba(0,0,0,0.15),
+                inset 0 2px 4px rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .address-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #8b6914, #d4af37, #f4e7a1, #d4af37, #8b6914);
+        }
+
+        .address-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2c1810;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .address-details {
+            margin-bottom: 2.5rem;
+        }
+
+        .address-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.08);
+            border-radius: 15px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .address-icon {
+            color: #8b6914;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            margin-top: 0.2rem;
+            min-width: 24px;
+        }
+
+        .address-content {
+            flex: 1;
+        }
+
+        .address-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #8b6914;
+            margin-bottom: 0.8rem;
+        }
+
+        .address-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            color: #2c1810;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .map-wrapper {
+            border: 6px solid #8b6914;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            height: 400px;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .directions-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b6914 0%, #d4af37 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 25px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 105, 20, 0.3);
+            width: 100%;
+            display: block;
+        }
+
+        .directions-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 105, 20, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .admission-banner {
+            background: linear-gradient(135deg, #2c1810 0%, #5d4e37 100%);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admission-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(212, 175, 55, 0.03) 20px,
+                    rgba(212, 175, 55, 0.03) 40px
+                );
+        }
+
+        .admission-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .admission-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: #f5f1eb;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .admission-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            color: #f4e7a1;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .visit-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .map-wrapper {
+                height: 300px;
+                position: static;
+            }
+
+            .info-card, .address-card {
+                padding: 2rem;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .visit-content, .location-section {
+                padding: 3rem 1rem;
+            }
+
+            .admission-banner {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .info-card, .address-card {
+                padding: 1.5rem;
+            }
+
+            .card-title, .address-title {
+                font-size: 1.6rem;
+            }
+
+            .info-label {
+                font-size: 1.1rem;
+            }
+
+            .info-text, .address-text {
+                font-size: 1rem;
+            }
+
+            .map-wrapper {
+                height: 250px;
+            }
+
+            .address-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+            }
+
+            .address-icon {
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+            }
+
+            .directions-btn {
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Museo de Guinobatan</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="visit.html" class="active">Visit Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Plan Your Visit</h1>
+            <p class="hero-subtitle">Experience history, culture, and heritage in the heart of Guinobatan</p>
+        </div>
+    </section>
+
+    <section class="visit-content">
+        <div class="visit-container">
+            <div class="info-card">
+                <h2 class="card-title">Opening Hours</h2>
+                <div class="info-item">
+                    <div class="info-label">Operating Schedule</div>
+                    <div class="hours-grid">
+                        <div class="hours-item">
+                            <div class="hours-day">Monday - Friday</div>
+                            <div class="hours-time">8:00 AM - 5:00 PM</div>
+                        </div>
+                        <div class="hours-item closed">
+                            <div class="hours-day">Weekends</div>
+                            <div class="hours-time">Closed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Please Note</div>
+                    <p class="info-text">We are open Monday through Friday only. Weekend visits are not available at this time. We recommend arriving at least 1 hour before closing time for the best experience.</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2 class="card-title">Contact Information</h2>
+                <div class="info-item">
+                    <div class="info-label">Museum Office</div>
+                    <p class="info-text">For inquiries, group visits, or special arrangements, please visit our museum office during operating hours.</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Accessibility</div>
+                    <p class="info-text">Our museum is committed to providing accessible experiences for all visitors. Please contact us in advance if you have specific accessibility needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="admission-banner">
+        <div class="admission-content">
+            <h2 class="admission-title">Admission & Photography</h2>
+            <p class="admission-text">
+                We warmly welcome all visitors to explore our rich collection of cultural artifacts and historical exhibits, with <span class="highlight">free admission</span> for everyone. 
+                <span class="highlight">Photography is encouraged</span>, so feel free to capture and share the beauty of our heritage. 
+                Although admission is free, <span class="highlight">donations are greatly appreciated</span> and help us preserve these cultural treasures for future generations.
+            </p>
+        </div>
+    </section>
+
+    <section class="location-section">
+        <div class="location-container">
+            <h2 class="location-title">Find Us</h2>
+            <div class="location-content">
+                <div class="address-card">
+                    <h3 class="address-title">Museo de Guinobatan</h3>
+                    <div class="address-details">
+                        <div class="address-item">
+                            <div class="address-icon">📍</div>
+                            <div class="address-content">
+                                <div class="address-label">Address</div>
+                                <p class="address-text">Barangay Centro<br>Guinobatan, Albay 4503<br>Philippines</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/dir//museo+de+guinobatan" target="_blank" class="directions-btn">
+                        Get Directions
+                    </a>
+                </div>
+
+                <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.4!2d123.598757!3d13.1906203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a10896a3066f41:0xd9f710920ba1d20b!2sMUSEO%20de%20GUINOBATAN!5e0!3m2!1sen!2sph!4v1640995200000!5m2!1sen!2sph"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.info-card, .address-card').forEach(card => {
+            card.classList.add('fade-in');
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

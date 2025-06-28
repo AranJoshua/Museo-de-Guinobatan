@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection - Museo de Guinobatan</title>
+    
+    <!-- Custom Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='columns' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f4e7a1;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%23d4af37;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b6914;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='pediment' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23d4af37;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236b4e08;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Classical Pediment --%3E%3Cpath d='M16 3 L28 12 L4 12 Z' fill='url(%23pediment)' stroke='%232c1810' stroke-width='0.5'/%3E%3C!-- Pediment Shadow --%3E%3Cpath d='M16 3 L28 12 L25 12 L16 5.5 Z' fill='%234a3508' opacity='0.4'/%3E%3C!-- Central Column --%3E%3Crect x='14.5' y='12' width='3' height='14' fill='url(%23columns)' rx='0.3'/%3E%3C!-- Left Columns --%3E%3Crect x='8' y='12' width='2.5' height='14' fill='url(%23columns)' rx='0.3'/%3E%3Crect x='11.5' y='12' width='2.5' height='14' fill='url(%23columns)' rx='0.3'/%3E%3C!-- Right Columns --%3E%3Crect x='18' y='12' width='2.5' height='14' fill='url(%23columns)' rx='0.3'/%3E%3Crect x='21.5' y='12' width='2.5' height='14' fill='url(%23columns)' rx='0.3'/%3E%3C!-- Column Capitals --%3E%3Crect x='7.5' y='11.5' width='3.5' height='1.5' fill='%23f4e7a1' rx='0.2'/%3E%3Crect x='11' y='11.5' width='3.5' height='1.5' fill='%23f4e7a1' rx='0.2'/%3E%3Crect x='14' y='11.5' width='4' height='1.5' fill='%23f4e7a1' rx='0.2'/%3E%3Crect x='17.5' y='11.5' width='3.5' height='1.5' fill='%23f4e7a1' rx='0.2'/%3E%3Crect x='21' y='11.5' width='3.5' height='1.5' fill='%23f4e7a1' rx='0.2'/%3E%3C!-- Stylobate Base --%3E%3Crect x='6' y='26' width='20' height='3' fill='%23d4af37' rx='0.5'/%3E%3Crect x='5' y='28' width='22' height='1.5' fill='%236b4e08' rx='0.3'/%3E%3C!-- Museum Text Hint --%3E%3Ctext x='16' y='8' text-anchor='middle' font-family='serif' font-size='3' fill='%232c1810' font-weight='bold'%3EM%3C/text%3E%3C!-- Column Shadows for Depth --%3E%3Crect x='17.5' y='12' width='0.8' height='14' fill='%236b4e08' opacity='0.3'/%3E%3Crect x='11' y='12' width='0.8' height='14' fill='%236b4e08' opacity='0.3'/%3E%3Crect x='14.3' y='12' width='0.8' height='14' fill='%236b4e08' opacity='0.3'/%3E%3Crect x='21' y='12' width='0.8' height='14' fill='%236b4e08' opacity='0.3'/%3E%3Crect x='7.8' y='12' width='0.8' height='14' fill='%236b4e08' opacity='0.3'/%3E%3C/svg%3E">
+    
+    <!-- Fallback for older browsers -->
+    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAA=">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    
+    <style>
+        /* Collection-specific styles */
+        .collection-hero {
+            height: 60vh; /* Reduced from 75vh to 50vh */
+            background: 
+                linear-gradient(135deg, rgba(44, 24, 16, 0.7) 0%, rgba(93, 78, 55, 0.5) 50%, rgba(139, 105, 20, 0.6) 100%),
+                linear-gradient(45deg, #1a0f08 0%, #2c1810 25%, #8b6914 50%, #d4af37 75%, #f4e7a1 100%);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 20%, rgba(244, 231, 161, 0.08) 0%, transparent 40%);
+            animation: subtleFloat 15s ease-in-out infinite;
+        }
+
+        .collection-hero::after {
+            content: '';
+            position: absolute;
+            top: -25%;
+            left: -25%;
+            width: 150%;
+            height: 150%;
+            background: 
+                conic-gradient(from 0deg at 50% 50%, 
+                    transparent 0deg, 
+                    rgba(212, 175, 55, 0.02) 60deg, 
+                    transparent 120deg, 
+                    rgba(244, 231, 161, 0.015) 180deg, 
+                    transparent 240deg, 
+                    rgba(139, 105, 20, 0.025) 300deg, 
+                    transparent 360deg);
+            animation: slowRotate 120s linear infinite;
+            pointer-events: none;
+        }
+
+        /* Fix for hero content to match main page styling */
+
+        /* Apply the same hero h1 styling from index.css */
+        .collection-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 700;
+            color: #f5f1eb;
+            text-shadow: 
+                3px 3px 0px #8b6914,
+                6px 6px 10px rgba(0,0,0,0.8),
+                0 0 30px rgba(212, 175, 55, 0.3);
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            position: relative;
+            display: inline-block;
+        }
+
+        .collection-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+        }
+
+        .collection-hero h1::before {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #d4af37;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 6px rgba(212, 175, 55, 0.6),
+                0 0 12px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Apply the same hero subtitle styling from index.css */
+        .collection-hero .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #f4e7a1;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+            opacity: 0;
+            animation: slideUp 1.2s ease-out 0.3s forwards;
+        }
+
+        .collection-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f9f6f0 0%, #f0ebe1 100%);
+            position: relative;
+        }
+
+        .collection-section:nth-child(odd) {
+            background: linear-gradient(135deg, #ede6d6 0%, #e6dcc6 100%);
+        }
+
+        .collection-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .collection-image-wrapper {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+            border: 8px solid #8b6914;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.3),
+                inset 0 2px 4px rgba(255,255,255,0.1);
+            background: #2c1810;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .collection-image-wrapper:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.4),
+                inset 0 2px 4px rgba(255,255,255,0.1);
+        }
+
+        .collection-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .collection-content {
+            flex: 1;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 241, 235, 0.8) 100%);
+            border-radius: 15px;
+            box-shadow: 
+                0 10px 25px rgba(0,0,0,0.1),
+                inset 0 1px 3px rgba(255,255,255,0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8b6914, #d4af37, #f4e7a1, #d4af37, #8b6914);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease infinite;
+        }
+
+        .collection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: #2c1810;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .collection-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #8b6914, #d4af37);
+            border-radius: 2px;
+        }
+
+        .collection-description {
+            color: #2c1810;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-family: 'Crimson Text', serif;
+            text-align: justify;
+        }
+
+        .collection-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .collection-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Reverse layout for even sections */
+        .collection-section:nth-child(even) .collection-container {
+            flex-direction: row-reverse;
+        }
+
+        .visit-encouragement {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #2c1810 0%, #5d4e37 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visit-encouragement::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="vintage" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M25 0L50 25L25 50L0 25Z" fill="%23d4af37" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23vintage)"/></svg>');
+        }
+
+        .visit-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .visit-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            color: #f5f1eb;
+            margin-bottom: 2rem;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .visit-text {
+            color: #f4e7a1;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .visit-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #d4af37 0%, #f4e7a1 100%);
+            color: #2c1810;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .visit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .collection-hero {
+                height: 45vh; /* Reduced from 75vh to 45vh for mobile */
+            }
+
+            .collection-hero h1 {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+                letter-spacing: 2px;
+            }
+
+            .collection-hero .hero-subtitle {
+                font-size: clamp(1rem, 4vw, 1.4rem);
+            }
+
+            .collection-container {
+                flex-direction: column !important;
+                gap: 2rem;
+                min-height: auto;
+            }
+
+            .collection-section:nth-child(even) .collection-container {
+                flex-direction: column !important;
+            }
+
+            .collection-image-wrapper {
+                max-width: 100%;
+            }
+
+            .collection-content {
+                padding: 1.5rem;
+            }
+
+            .collection-section {
+                padding: 3rem 1rem;
+            }
+
+            .visit-encouragement {
+                padding: 3rem 1rem;
+            }
+
+            .visit-title {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+
+            .visit-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .collection-hero h1 {
+                font-size: clamp(2rem, 9vw, 3rem);
+            }
+
+            .collection-hero .hero-subtitle {
+                font-size: clamp(0.9rem, 4vw, 1.2rem);
+            }
+
+            .collection-section {
+                padding: 2rem 1rem;
+            }
+
+            .collection-container {
+                gap: 1.5rem;
+            }
+
+            .collection-content {
+                padding: 1rem;
+            }
+
+            .collection-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+
+            .collection-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Museo de Guinobatan</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="collection.html" class="nav-link active">Collection</a></li>
+                <li><a href="visit.html" class="nav-link">Visit Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="collection-hero">
+        <div class="hero-content">
+            <h1>Our Collection</h1>
+            <p class="hero-subtitle">Discover our rich treasures and stories!</p>
+        </div>
+    </section>
+
+    <!-- Paintings Section -->
+    <section class="collection-section fade-in">
+        <div class="collection-container">
+            <div class="collection-image-wrapper">
+                <img src="images/collage1.png" alt="Historical Paintings Collection" loading="lazy">
+            </div>
+            <div class="collection-content">
+                <h2 class="collection-title">Historical Paintings</h2>
+                <div class="collection-description">
+                    <p>Our collection of historical paintings captures the essence of Guinobatan's rich past through the masterful strokes of local artists. These works of art serve as visual narratives, telling stories of our community's evolution, cultural traditions, and significant historical moments.</p>
+                    
+                    <p>Each painting in this collection represents a different era or aspect of Guinobatan's heritage. From portraits of influential local figures to depictions of important historical events, these artworks provide visitors with a deeper understanding of our town's cultural identity and artistic legacy.</p>
+                    
+                    <p>The techniques and styles represented in these paintings reflect the artistic movements that have influenced Filipino art throughout the centuries, showcasing both traditional and contemporary approaches to capturing our local history and culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artifacts Section -->
+    <section class="collection-section fade-in">
+        <div class="collection-container">
+            <div class="collection-image-wrapper">
+                <img src="images/collage2.png" alt="Historical Artifacts Collection" loading="lazy">
+            </div>
+            <div class="collection-content">
+                <h2 class="collection-title">Cultural Artifacts</h2>
+                <div class="collection-description">
+                    <p>The artifact collection at Museo de Guinobatan represents the tangible heritage of our community, featuring objects that were once part of daily life, religious practices, and cultural ceremonies. These precious items have been carefully preserved to maintain their historical integrity and educational value.</p>
+                    
+                    <p>Among our most prized artifacts are traditional tools, household items, weapons for battle, and personal belongings that belonged to notable figures in Guinobatan's history. Each piece tells a unique story about the people who used them and the times in which they lived, offering visitors a hands-on connection to the past.</p>
+                    
+                    <p>These artifacts serve as important educational resources, helping visitors understand the evolution of technology, craftsmanship, and cultural practices in our region. They represent the ingenuity and artistry of our ancestors and their adaptation to the unique challenges and opportunities of their time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents & Scriptures Section -->
+    <section class="collection-section fade-in">
+        <div class="collection-container">
+            <div class="collection-image-wrapper">
+                <img src="images/collage3.png" alt="Historical Documents and Scriptures Collection" loading="lazy">
+            </div>
+            <div class="collection-content">
+                <h2 class="collection-title">Historical Documents</h2>
+                <div class="collection-description">
+                    <p>Our archive of historical documents and scriptures forms the documentary backbone of Guinobatan's recorded history. These precious papers include official records, personal letters, and governmental documents that chronicle the administrative, social, and spiritual life of our community throughout the centuries.</p>
+                    
+                    <p>The collection features original manuscripts, colonial-era correspondence, and various official documents that provide insight into the political and social structures that shaped our town. Many of these documents are written in English, Tagalog, and Bikol, reflecting the linguistic diversity of our historical period.</p>
+                    
+                    <p>These documents serve as primary sources for researchers and historians studying the development of Guinobatan and the broader Bicol region. They offer authentic voices from the past, providing first-hand accounts of historical events, cultural practices, and daily life as experienced by the people who lived through these transformative periods.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Encouragement Section -->
+    <section class="visit-encouragement">
+        <div class="visit-content">
+            <h2 class="visit-title fade-in">Experience the Complete Collection</h2>
+            <p class="visit-text fade-in">While these glimpses showcase the depth and beauty of our collection, nothing compares to experiencing these treasures in person. Each artifact, painting, and document reveals new details and stories when viewed up close, surrounded by the atmosphere and context that only our museum can provide.</p>
+            <a href="visit.html" class="visit-button fade-in">Plan Your Visit</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(44, 24, 16, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+            } else {
+                nav.style.background = 'rgba(44, 24, 16, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.collection-hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add error handling for images
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', (e) => {
+                    console.log(`Failed to load image: ${e.target.src}`);
+                    // Optionally set a fallback image
+                    // e.target.src = 'images/fallback-image.jpg';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
