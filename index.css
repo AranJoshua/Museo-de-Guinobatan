@@ -113,7 +113,7 @@
         }
 
         .hero {
-            height: 60vh;
+            height: clamp(60vh, 65vh, 70vh);
             background: 
                 linear-gradient(135deg, rgba(44, 24, 16, 0.7) 0%, rgba(93, 78, 55, 0.5) 50%, rgba(139, 105, 20, 0.6) 100%),
                 linear-gradient(45deg, #1a0f08 0%, #2c1810 25%, #8b6914 50%, #d4af37 75%, #f4e7a1 100%);
@@ -157,6 +157,15 @@
                     transparent 360deg);
             animation: slowRotate 120s linear infinite;
             pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
         }
 
         .hero-content {
@@ -229,7 +238,7 @@
             font-style: italic;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
             font-weight: 400;
-            max-width: 800px;
+            max-width: min(800px, 90vw);
             margin: 0 auto;
             line-height: 1.4;
             opacity: 0;
