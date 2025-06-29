@@ -25,7 +25,7 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: min(1200px, 95vw);
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -162,7 +162,7 @@
         .hero-content {
             z-index: 2;
             animation: heroEntrance 1.5s ease-out;
-            max-width: 1000px;
+            max-width: min(1000px, 90vw);
             padding: 0 2rem;
             position: relative;
         }
@@ -243,11 +243,11 @@
         }
 
         .video-container {
-            max-width: 1200px;
+            max-width: min(1200px, 95vw);
             margin: 0 auto;
             display: flex;
-            gap: 3rem;
-            align-items: flex-start;
+            gap: 4rem;
+            align-items: center;
         }
 
         .video-wrapper {
@@ -353,7 +353,7 @@
         }
 
         .gallery-container {
-            max-width: 1200px;
+            max-width: min(1200px, 95vw);
             margin: 0 auto;
         }
 
@@ -457,7 +457,7 @@
         }
 
         .location-container {
-            max-width: 1200px;
+            max-width: min(1200px, 95vw);
             margin: 0 auto;
             text-align: center;
         }
@@ -496,10 +496,10 @@
         }
 
         .cta-content {
+            max-width: min(1000px, 90vw);
+            margin: 0 auto;
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .cta-title {
@@ -699,4 +699,22 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Large screen optimization - only for screens wider than 1400px */
+        @media (min-width: 1400px) {
+            .nav-container {
+                max-width: 1400px;
+            }
+            
+            .video-container,
+            .gallery-container,
+            .location-container {
+                max-width: 1400px;
+            }
+            
+            .hero-content,
+            .cta-content {
+                max-width: 1200px;
+            }
         }
