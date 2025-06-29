@@ -13,7 +13,7 @@
         }
 
         .visit-container {
-            max-width: 1200px;
+            max-width: min(1200px, 95vw);
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -143,7 +143,7 @@
         }
 
         .location-container {
-            max-width: 1200px;
+            max-width: min(1200px, 95vw);
             margin: 0 auto;
         }
 
@@ -338,6 +338,13 @@
         .highlight {
             color: #d4af37;
             font-weight: 600;
+        }
+
+        @media (min-width: 1400px) {
+            .visit-container,
+            .location-container {
+                max-width: 1400px;
+            }
         }
 
         @media (max-width: 768px) {
